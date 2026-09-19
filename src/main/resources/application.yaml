@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: razorpay
+  datasource:
+    url: jdbc:postgresql://localhost:5432/localdb
+    username: localuser
+    password: localpassword
+#    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update # update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+      jdbc:
+        time_zone: Asia/Kolkata
+
+app:
+  timezone: Asia/Kolkata
