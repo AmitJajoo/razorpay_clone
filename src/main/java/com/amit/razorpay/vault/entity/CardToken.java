@@ -1,5 +1,6 @@
 package com.amit.razorpay.vault.entity;
 
+import com.amit.razorpay.common.entity.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -25,7 +26,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @Builder
-public class CardToken {
+public class CardToken extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

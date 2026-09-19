@@ -18,12 +18,8 @@ public record PaymentResponse(
         PaymentStatus status,
         PaymentMethod method,
         Map<String, Object> methodDetails,
-        String cardLastFour,
-        String cardBank,
-        String bankReference,
         String errorCode,
         String errorDescription,
-        Long refundAmountPaise,
         LocalDateTime capturedAt,
         LocalDateTime createdAt
 ) {

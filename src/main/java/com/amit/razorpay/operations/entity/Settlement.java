@@ -1,5 +1,6 @@
 package com.amit.razorpay.operations.entity;
 
+import com.amit.razorpay.common.entity.BaseEntity;
 import com.amit.razorpay.common.entity.Money;
 import com.amit.razorpay.common.enums.SettlementStatus;
 import jakarta.persistence.AttributeOverride;
@@ -29,7 +30,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @Builder
-public class Settlement {
+public class Settlement extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;

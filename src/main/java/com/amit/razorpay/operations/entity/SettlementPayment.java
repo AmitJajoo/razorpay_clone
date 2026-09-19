@@ -1,5 +1,6 @@
 package com.amit.razorpay.operations.entity;
 
+import com.amit.razorpay.common.entity.BaseEntity;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 
@@ -21,7 +22,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public class SettlementPayment {
+public class SettlementPayment extends BaseEntity {
 
     @EmbeddedId
     private SettlementPaymentId settlementPaymentId;

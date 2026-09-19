@@ -9,6 +9,7 @@ import com.amit.razorpay.payment.dto.response.OrderResponse;
 import com.amit.razorpay.payment.dto.response.PaymentResponse;
 import com.amit.razorpay.payment.entity.OrderRecord;
 import com.amit.razorpay.payment.entity.Payment;
+import com.amit.razorpay.payment.mapper.PaymentMapper;
 import com.amit.razorpay.payment.repository.OrderRepository;
 import com.amit.razorpay.payment.repository.PaymentRepository;
 import com.amit.razorpay.payment.service.OrderService;
@@ -31,6 +32,7 @@ public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
     private final PaymentRepository paymentRepository;
+    private final PaymentMapper paymentMapper;
 
     @Value("${payment.order.default-order-expiry-minutes:30}")
     private int defaultOrderExpiryMinutes;
@@ -96,6 +98,9 @@ public class OrderServiceImpl implements OrderService {
         OrderRecord order = orderRepository.findByIdAndMerchantId(orderId, merchantId)
                 .orElseThrow(() -> new ResourceNotFoundException("Order", orderId));
 
-        List<Payment> paymentList = paymentRepository.findByOrder(
+
+        List<Payment> paymentList = paymentRepository.findByOrder_Id(order);
+
+        return paymentMapper.toResponseList(paymentList);
     }
 }

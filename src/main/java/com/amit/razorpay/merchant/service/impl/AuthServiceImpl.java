@@ -36,7 +36,7 @@ public class AuthServiceImpl implements AuthService {
                 .businessType(request.businessType())
                 .name(request.name())
                 .email(request.email())
-                .merchantStatus(MerchantStatus.PENDING_KYC)
+                .status(MerchantStatus.PENDING_KYC)
                 .build();
 
         merchant = merchantRepository.save(merchant);
@@ -53,6 +53,6 @@ public class AuthServiceImpl implements AuthService {
 
         return new MerchantResponse(merchant.getId(), merchant.getName(),
                 merchant.getEmail(), merchant.getBusinessName(),
-                merchant.getBusinessType(), merchant.getMerchantStatus());
+                merchant.getBusinessType(), merchant.getStatus());
     }
 }
